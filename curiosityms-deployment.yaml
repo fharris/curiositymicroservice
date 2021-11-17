@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: curiosityms-deployment
+spec:
+  selector:
+    matchLabels:
+      app: curiosityms
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: curiosityms
+    spec:
+      containers:
+      - name: curiosityms
+        image: eu-frankfurt-1.ocir.io/interactivetech/curiosityms:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8090
+      imagePullSecrets:
+      - name: ocirsecret
