@@ -2,11 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: curiosityms-deployment
+  namespace: curiosityevents
 spec:
   selector:
     matchLabels:
       app: curiosityms
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
