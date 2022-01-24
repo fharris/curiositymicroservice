@@ -19,5 +19,8 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8090
+        envFrom:
+          - secretRef:
+              name: curiositymonolith-mysql-db-secret
       imagePullSecrets:
       - name: ocirsecret
