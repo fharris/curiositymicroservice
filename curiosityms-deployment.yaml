@@ -21,6 +21,6 @@ spec:
         - containerPort: 8090
         envFrom:
           - secretRef:
-              name: curiositymonolith-mysql-db-secret
+              name: curiosityms-mysql-db-secret
       imagePullSecrets:
       - name: ocirsecret
