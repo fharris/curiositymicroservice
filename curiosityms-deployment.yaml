@@ -20,6 +20,8 @@ spec:
         ports:
         - containerPort: 8090
         envFrom:
+          - configMapRef:
+              name: curiosityms-configmap-ms
           - secretRef:
               name: curiosityms-mysql-db-secret
       imagePullSecrets:
