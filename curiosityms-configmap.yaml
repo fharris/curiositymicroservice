@@ -4,6 +4,6 @@ metadata:
   name: curiosityms-configmap-ms
   namespace: curiosityevents
 data:
-  SPRING_DATASOURCE_HOST: "130.61.82.74"
+  SPRING_DATASOURCE_HOST: "130.61.176.102"
   SPRING_DATASOURCE_PORT: "3306"
   SPRING_DATASOURCE_DBNAME: "curiositydb"
