@@ -5,6 +5,8 @@ ENV SPRING_DATASOURCE_PASSWORD Welcome#1
 ENV SPRING_DATASOURCE_HOST 130.61.176.102
 ENV SPRING_DATASOURCE_PORT 3306
 ENV SPRING_DATASOURCE_DBNAME curiositydb
+ENV OCI_CONFIG_STREAM_ENDPOINT https://cell-1.streaming.eu-frankfurt-1.oci.oraclecloud.com   
+ENV OCI_CONFIG_STREAM_ID ocid1.stream.oc1.eu-frankfurt-1.amaaaaaauevftmqau7jfdmryoq7mpcaijbnmhqvuozxnx57sdcofedybfq5q    
 
 COPY ./pom.xml ./pom.xml
 
