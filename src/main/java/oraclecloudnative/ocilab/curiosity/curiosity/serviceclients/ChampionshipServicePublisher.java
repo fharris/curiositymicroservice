@@ -39,8 +39,8 @@ public class ChampionshipServicePublisher {
 
 
     
-    public ChampionshipServicePublisher(@Value("${oci.config.stream-endpoint}") final String ociConfigStreamEndpoint, 
-                                        @Value("${oci.config.stream-id}") final String ociConfigStreamId) {
+    public ChampionshipServicePublisher(@Value("${oci.config.stream.endpoint}") final String ociConfigStreamEndpoint, 
+                                        @Value("${oci.config.stream.id}") final String ociConfigStreamId) {
         
         this.UTF16 = "UTF-8";
         this.streamEndpoint = ociConfigStreamEndpoint;

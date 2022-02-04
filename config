@@ -1,7 +1,6 @@
 [DEFAULT]
-user=ocid1.user.oc1..aaaaaaaablihfmdzonosp4gvdofd3xzvdause2xphp66smbpfxg6ycncbvua
-fingerprint=a3:e2:9a:cb:8f:38:39:d8:f3:85:08:76:85:43:af:d2
-key_file=oci_api_key.pem
-tenancy=ocid1.tenancy.oc1..aaaaaaaa4cas4diymcy4marah3gnk6zijsmtkmzcbsepmgdnmk252afel66a
+user=ocid1.user.oc1..aaaaaaaascoia37gltcmk6p4ys7aqm5x3hijaftxkqco6wrbib2gjaxnesrq
+fingerprint=2f:e7:ca:a7:88:ef:d2:32:5b:5a:22:72:ec:d9:2b:83
+tenancy=ocid1.tenancy.oc1..aaaaaaaa4wptnxymnypvjjltnejidchjhz6uimlhru7rdi5qb6qlnmrtgu3a
 region=eu-frankfurt-1
-pass_phrase=Malawi#1981
+key_file=oci_api_key.pem
