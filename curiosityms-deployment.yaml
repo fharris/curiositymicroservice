@@ -15,7 +15,6 @@ spec:
     spec:
       containers:
       - name: curiosityms
-        #image: eu-frankfurt-1.ocir.io/interactivetech/curiosityms:latest
         image: fra.ocir.io/frsxwtjslf35/wikipedia/demo/curiosityms:latest
         imagePullPolicy: Always
         ports:
