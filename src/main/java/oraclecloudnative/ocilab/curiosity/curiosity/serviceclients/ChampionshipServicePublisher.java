@@ -30,15 +30,11 @@ import oraclecloudnative.ocilab.curiosity.curiosity.SentQueryPageEvent;
 @Service
 public class ChampionshipServicePublisher {
 
-
-    //these should be passed in the future through application.properties
     private String streamEndpoint;
     private String UTF16;
     private String streamId ;
 
 
-
-    
     public ChampionshipServicePublisher(@Value("${oci.config.stream.endpoint}") final String ociConfigStreamEndpoint, 
                                         @Value("${oci.config.stream.id}") final String ociConfigStreamId) {
         
@@ -50,27 +46,13 @@ public class ChampionshipServicePublisher {
 
 
     private StreamClient prepareOCICall() {
-
-
-        /*
-        *
-        * Use this to authenticate through Instance Principals inside OCI
-        *
-        */
-        //InstancePrincipalsAuthenticationDetailsProvider provider = InstancePrincipalsAuthenticationDetailsProvider.builder().build(); 
-        //IdentityClient identityClient = new IdentityClient(provider);
-         /*
-        *
-        *
-        */
-
-        
+    
         log.info("Using DEFAULT profile from the default OCI configuration file ($HOME/.oci/config)");
         try {
-            var configFile = ConfigFileReader.parseDefault();
-            var ociAuthProvider = new ConfigFileAuthenticationDetailsProvider(configFile);
+            var ociPersonalConfigurationFile = ConfigFileReader.parseDefault();
+            var ociAuthenticationProvider = new ConfigFileAuthenticationDetailsProvider(ociPersonalConfigurationFile);
             log.info("Preparing OCI API clients (for Streaming)");	
-            return StreamClient.builder().endpoint(streamEndpoint).build(ociAuthProvider);
+            return StreamClient.builder().endpoint(streamEndpoint).build(ociAuthenticationProvider);
         } catch (IOException e) {
             log.error("Error preparing OCI Call");		
             e.printStackTrace();
@@ -88,7 +70,7 @@ public class ChampionshipServicePublisher {
 
      }
 
-     public void publishMessageToStream(QueryPage queryPage) //challengeSolved
+     public void publishMessageToStream(QueryPage queryPage)
             throws UnsupportedEncodingException {
 
                 SentQueryPageEvent event = buildEvent(queryPage);
@@ -106,21 +88,17 @@ public class ChampionshipServicePublisher {
                   }
 
 
-        // Prepare PutMessagesDetails
         var messages = new ArrayList<PutMessagesDetailsEntry>();
-						for (int i = 0; i < 1; i++) { //use the loop to publish multiple messages
+						for (int i = 0; i < 1; i++) { 
 							messages.add(
 									PutMessagesDetailsEntry.builder()
 											.key(String.format("messageKey-%s",  queryPage.getId()).getBytes(UTF16))
-											//.value(String.format("messageValue-%s", i).getBytes(UTF16))
 											.value(String.format(queryPageAsString).getBytes(UTF16))
 											.build());
 						}
 
         var putMessagesDetails = PutMessagesDetails.builder().messages(messages).build();
         
-        // Put message to the stream
-        // https://docs.oracle.com/en-us/iaas/api/#/en/streaming/20180418/Message/PutMessages
         var putMessagesRequest = PutMessagesRequest.builder()
                                     .streamId(streamId)
                                     .putMessagesDetails(putMessagesDetails)
@@ -128,7 +106,7 @@ public class ChampionshipServicePublisher {
         var putMessagesResponse = streamClient.putMessages(putMessagesRequest);
         var putMessagesResponseCode = putMessagesResponse.get__httpStatusCode__();
         if(putMessagesResponseCode!=200) {
-            log.error("PutObject failed - HTTP {}", putMessagesResponseCode);
+            log.error("Error in putMessagesResponse -  error{}", putMessagesResponseCode);
             System.exit(1);
         }
         log.info("Successfully published the message to the stream");

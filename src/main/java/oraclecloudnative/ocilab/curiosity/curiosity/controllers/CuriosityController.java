@@ -56,6 +56,13 @@ public class CuriosityController {
         );
     }
 
+    @GetMapping("/curiosity/stats2/{userName}")
+    ResponseEntity<List<QueryPage>> getStats2(@PathVariable String userName){
+        return ResponseEntity.ok(
+                    curiosityService.getStatsforUser(userName)
+        );
+    }
+
 
 
     
