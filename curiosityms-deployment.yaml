@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: curiosityms
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: curiosityms
-        image: fra.ocir.io/frsxwtjslf35/wikipedia/demo/curiosityms:latest
+        #image: fra.ocir.io/frsxwtjslf35/wikipedia/demo/curiosityms:latest
+        image: fra.ocir.io/frsxwtjslf35/wikipedia/demo/newcuriosityms:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8090

@@ -12,14 +12,14 @@ import com.oracle.bmc.streaming.StreamClient;
 import com.oracle.bmc.streaming.model.PutMessagesDetailsEntry;
 import com.oracle.bmc.streaming.model.PutMessagesDetails;
 import com.oracle.bmc.streaming.requests.PutMessagesRequest;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-
 import lombok.extern.slf4j.Slf4j;
 import oraclecloudnative.ocilab.curiosity.curiosity.QueryPage;
 import oraclecloudnative.ocilab.curiosity.curiosity.SentQueryPageEvent;
+
+
+
 
 /*
 *
@@ -32,12 +32,15 @@ public class ChampionshipServicePublisher {
 
     private String streamEndpoint;
     private String UTF16;
-    private String streamId ;
-
+    private String streamId;
+    private final KafkaProducerMyService kafkaProducerMyService;
+   
 
     public ChampionshipServicePublisher(@Value("${oci.config.stream.endpoint}") final String ociConfigStreamEndpoint, 
-                                        @Value("${oci.config.stream.id}") final String ociConfigStreamId) {
+                                        @Value("${oci.config.stream.id}") final String ociConfigStreamId,
+                                        KafkaProducerMyService kafkaProducerMyService) {
         
+        this.kafkaProducerMyService = kafkaProducerMyService;
         this.UTF16 = "UTF-8";
         this.streamEndpoint = ociConfigStreamEndpoint;
         this.streamId = ociConfigStreamId;
@@ -112,6 +115,30 @@ public class ChampionshipServicePublisher {
         log.info("Successfully published the message to the stream");
     }
 
+
+    public void publishMessageToKafka(String string) {
+        // TODO: Implement code to send a message to Kafka
+
+        log.info("Publishing message to Kafka");
+        log.info(string);
+
+        kafkaProducerMyService.sendMessage(string);  
+  
+    }
+
+    public void publishMessageToKafka2(QueryPage queryPage) {
+        // TODO: Implement code to send a message to Kafka
+
+        log.info("Publishing message object to Kafka");
+        log.info(queryPage.toString());
+        kafkaProducerMyService.sendMessage2(queryPage);   
+  
+    }
+        
+
+
+
+    
 
     
 }

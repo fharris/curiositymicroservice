@@ -3,15 +3,13 @@ package oraclecloudnative.ocilab.curiosity.curiosity;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import oraclecloudnative.ocilab.curiosity.curiosity.pagedetails.Page;
 import oraclecloudnative.ocilab.curiosity.curiosity.serviceclients.ChampionshipServicePublisher;
 import oraclecloudnative.ocilab.curiosity.curiosity.serviceclients.WikipediaServiceClient;
-import oraclecloudnative.ocilab.curiosity.curiosity.serviceclients.ChampionshipServiceClient;
-import oraclecloudnative.ocilab.curiosity.curiosity.serviceclients.ChampionshipServiceEventPublisher;
+
 import oraclecloudnative.ocilab.curiosity.user.User;
 import oraclecloudnative.ocilab.curiosity.user.UserRepository;
 
@@ -26,9 +24,8 @@ public class CuriosityServiceImpl implements CuriosityService{
     private final UserRepository userRepository;
     private final QueryPageRepository queryPageRepository;
     private final ChampionshipServicePublisher championshipServicePublisher;
-    private final ChampionshipServiceEventPublisher championshipServiceEventPublisher;
    // private final ChampionshipServiceConsumer championshipServiceConsumer;
-    private final ChampionshipServiceClient championshipServiceClient;
+   
  
 
 
@@ -73,12 +70,25 @@ public class CuriosityServiceImpl implements CuriosityService{
 
             log.info("If everything is OK then publish message to kafka and to ChampionshipMS");
             try {
-                championshipServicePublisher.publishMessageToStream(queryPage);
+                championshipServicePublisher.publishMessageToKafka("calling for kafka!");
                 //Boolean isStatusOk =  championshipServiceClient.sendAttempt(queryPage);
 
             } catch (Exception e) {
                 //log.error("Error trying to publish to OCI Streaming");	
                 log.error("Error trying to send request to ChampionshipMS");	
+                e.printStackTrace();
+                //despite the error with the publish, still replies object QueryPage back to caller
+                return page;
+            }
+
+            log.info("If everything is OK then publish message object to kafka and to ChampionshipMS");
+            try {
+                championshipServicePublisher.publishMessageToKafka2(queryPage);
+                //Boolean isStatusOk =  championshipServiceClient.sendAttempt(queryPage);
+
+            } catch (Exception e) {
+                //log.error("Error trying to publish to OCI Streaming");	
+                log.error("Error trying to send request to ChampionshipMS in message/OBJECT");	
                 e.printStackTrace();
                 //despite the error with the publish, still replies object QueryPage back to caller
                 return page;
