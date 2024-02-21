@@ -55,9 +55,9 @@ public class CuriosityServiceImpl implements CuriosityService{
             log.info("If everything is OK then persist in DB a queryPage object");
             queryPageRepository.save(queryPage);
             
-            log.info("If everything is OK then publish message to stream and to ChampionshipMS");
+            log.info("If everything is OK then no longer publish message to stream and to ChampionshipMS");
             try {
-                championshipServicePublisher.publishMessageToStream(queryPage);
+                //championshipServicePublisher.publishMessageToStream(queryPage);
                 //Boolean isStatusOk =  championshipServiceClient.sendAttempt(queryPage);
 
             } catch (Exception e) {
@@ -68,7 +68,7 @@ public class CuriosityServiceImpl implements CuriosityService{
                 return page;
             }
 
-            log.info("If everything is OK then publish message to kafka and to ChampionshipMS");
+            log.info("If everything is OK then this is dummy ! publish message to kafka and to ChampionshipMS");
             try {
                // championshipServicePublisher.publishMessageToKafka("calling for kafka!");
                 //Boolean isStatusOk =  championshipServiceClient.sendAttempt(queryPage);
