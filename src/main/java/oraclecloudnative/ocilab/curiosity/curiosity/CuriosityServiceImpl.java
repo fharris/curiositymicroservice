@@ -70,7 +70,7 @@ public class CuriosityServiceImpl implements CuriosityService{
 
             log.info("If everything is OK then publish message to kafka and to ChampionshipMS");
             try {
-                championshipServicePublisher.publishMessageToKafka("calling for kafka!");
+               // championshipServicePublisher.publishMessageToKafka("calling for kafka!");
                 //Boolean isStatusOk =  championshipServiceClient.sendAttempt(queryPage);
 
             } catch (Exception e) {
@@ -83,8 +83,8 @@ public class CuriosityServiceImpl implements CuriosityService{
 
             log.info("If everything is OK then publish message object to kafka and to ChampionshipMS");
             try {
-                championshipServicePublisher.publishMessageToKafka2(queryPage);
-                //Boolean isStatusOk =  championshipServiceClient.sendAttempt(queryPage);
+                championshipServicePublisher.publishMessageToKafka(queryPage);
+                //Boolean isStatusOk =  championshipServiceClient.sendAttempt(queryPage);jogando tttpppsas          
 
             } catch (Exception e) {
                 //log.error("Error trying to publish to OCI Streaming");	

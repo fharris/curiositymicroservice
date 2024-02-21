@@ -116,7 +116,7 @@ public class ChampionshipServicePublisher {
     }
 
 
-    public void publishMessageToKafka(String string) {
+    public void publishMessageToKafkaString(String string) {
         // TODO: Implement code to send a message to Kafka
 
         log.info("Publishing message to Kafka");
@@ -126,12 +126,17 @@ public class ChampionshipServicePublisher {
   
     }
 
-    public void publishMessageToKafka2(QueryPage queryPage) {
+
+    public void publishMessageToKafka(QueryPage queryPage) {
         // TODO: Implement code to send a message to Kafka
 
         log.info("Publishing message object to Kafka");
         log.info(queryPage.toString());
-        kafkaProducerMyService.sendMessage2(queryPage);   
+
+
+        SentQueryPageEvent queryPageEvent = buildEvent(queryPage);
+
+        kafkaProducerMyService.sendMessage2(queryPageEvent);   
   
     }
         
