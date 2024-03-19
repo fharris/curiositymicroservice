@@ -1,18 +1,6 @@
 package oraclecloudnative.ocilab.curiosity.curiosity.serviceclients;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.oracle.bmc.ConfigFileReader;
-import com.oracle.bmc.auth.ConfigFileAuthenticationDetailsProvider;
-import com.oracle.bmc.streaming.StreamClient;
-import com.oracle.bmc.streaming.model.PutMessagesDetailsEntry;
-import com.oracle.bmc.streaming.model.PutMessagesDetails;
-import com.oracle.bmc.streaming.requests.PutMessagesRequest;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import oraclecloudnative.ocilab.curiosity.curiosity.QueryPage;
@@ -30,24 +18,28 @@ import oraclecloudnative.ocilab.curiosity.curiosity.SentQueryPageEvent;
 @Service
 public class ChampionshipServicePublisher {
 
-    private String streamEndpoint;
-    private String UTF16;
-    private String streamId;
+    //private String streamEndpoint;
+    //private String UTF16;
+    //private String streamId;
     private final KafkaProducerMyService kafkaProducerMyService;
    
 
-    public ChampionshipServicePublisher(@Value("${oci.config.stream.endpoint}") final String ociConfigStreamEndpoint, 
+    /*public ChampionshipServicePublisher(@Value("${oci.config.stream.endpoint}") final String ociConfigStreamEndpoint, 
                                         @Value("${oci.config.stream.id}") final String ociConfigStreamId,
                                         KafkaProducerMyService kafkaProducerMyService) {
+        */
         
+        
+    public ChampionshipServicePublisher(KafkaProducerMyService kafkaProducerMyService) {
+
         this.kafkaProducerMyService = kafkaProducerMyService;
-        this.UTF16 = "UTF-8";
-        this.streamEndpoint = ociConfigStreamEndpoint;
-        this.streamId = ociConfigStreamId;
+        //this.UTF16 = "UTF-8";
+        //this.streamEndpoint = "ociConfigStreamEndpoint";
+        //this.streamId = "ociConfigStreamId";
 
     }
 
-
+/* 
     private StreamClient prepareOCICall() {
     
         log.info("Using DEFAULT profile from the default OCI configuration file ($HOME/.oci/config)");
@@ -63,6 +55,7 @@ public class ChampionshipServicePublisher {
            
         return null;
      }
+     */
 
      private SentQueryPageEvent buildEvent(final QueryPage queryPage){
                 return new SentQueryPageEvent(queryPage.getId(), 
@@ -72,7 +65,7 @@ public class ChampionshipServicePublisher {
                                       queryPage.getQuery());
 
      }
-
+     /* 
      public void publishMessageToStream(QueryPage queryPage)
             throws UnsupportedEncodingException {
 
@@ -114,7 +107,7 @@ public class ChampionshipServicePublisher {
         }
         log.info("Successfully published the message to the stream");
     }
-
+    */
 
     public void publishMessageToKafkaString(String string) {
         // TODO: Implement code to send a message to Kafka
