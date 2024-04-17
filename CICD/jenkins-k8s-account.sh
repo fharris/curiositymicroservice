@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Starting configuration of Jenkins Account for Curiosity!"
+echo "Starting configuration of Jenkins Account for Curiosity Microservices!"
 
 echo Running in $SHELL
 

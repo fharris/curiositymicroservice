@@ -20,7 +20,7 @@ kubectl -n curiosityevents exec -it  `kubectl -n curiosityevents get \
  -- mysql -h 127.0.0.1 -u root -pmySQLpword#2023 < ./databaseconfig/create-curiositydb-resources.sql;
 kubectl apply -f ./appconfig/. ;
 echo "updating for a public accessible image of the application"
-kubectl -n curiosityevents set image deployment/curiosityms-deployment curiosity=fharris/curiosityms:latest
+kubectl -n curiosityevents set image deployment/curiosityms-deployment curiosityms=fra.ocir.io/frsxwtjslf35/wikipedia/demo/curiosityms:latest
 echo ".... waiting for the application to get deployed..."
 sleep 20;
 kubectl get pods -n curiosityevents;
