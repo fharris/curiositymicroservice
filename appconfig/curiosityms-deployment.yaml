@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: curiosityms
-        image: localhost:5000/curiosity:latest
+        image: localhost:5000/curiosityms:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8090
