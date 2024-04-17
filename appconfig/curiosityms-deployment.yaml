@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: curiosityms
-        image: fra.ocir.io/frsxwtjslf35/wikipedia/demo/curiosityms:latest
+        image: localhost:5000/curiosity:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8090
@@ -24,5 +24,3 @@ spec:
               name: curiosityms-configmap-ms
           - secretRef:
               name: curiosityms-mysql-db-secret
-      imagePullSecrets:
-      - name: ocirsecret

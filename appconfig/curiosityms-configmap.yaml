@@ -4,8 +4,8 @@ metadata:
   name: curiosityms-configmap-ms
   namespace: curiosityevents
 data:
-  SPRING_DATASOURCE_HOST: "130.61.147.13" # This is the IP of the MySQL service in my oke kubernetes
-  SPRING_DATASOURCE_PORT: "3306"
+  SPRING_DATASOURCE_HOST: "mysql-db-deployment.curiosityevents.svc.cluster.local"
+  SPRING_DATASOURCE_PORT: "80"
   SPRING_DATASOURCE_DBNAME: "curiositydb"
   KAFKA_BOOTSTRAP_SERVERS: kafka-service.kafka.svc.cluster.local:9092
   KAFKA_PRODUCER_BOOTSTRAP_SERVERS: kafka-service.kafka.svc.cluster.local:9092
