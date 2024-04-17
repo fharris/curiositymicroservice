@@ -54,7 +54,6 @@ pipeline {
       steps {
         withKubeConfig( credentialsId: 'jenkins-token-kubernetes', serverUrl: kubernetes_proxy ) {
 	          sh "kubectl apply -f appconfig/curiosityms-namespace.yaml"
-            sh "kubectl create ns kafka"
             sh "kubectl apply -f kafkaconfig/zookeeper-deploy.yaml"
             sh "kubectl apply -f kafkaconfig/zookeeper-svc.yaml"
             sh "kubectl apply -f kafkaconfig/kafka-deploy.yaml"

@@ -4,7 +4,7 @@ metadata:
   labels:
     app: kafka
   name: kafka
-  namespace: kafka
+  namespace: curiosityevents
 spec:
   replicas: 1
   selector:
@@ -20,9 +20,9 @@ spec:
       - env:
         - name: KAFKA_ZOOKEEPER_CONNECT
           #value: 10.43.40.119:2181
-          value: zookeeper-service.kafka.svc.cluster.local:2181
+          value: zookeeper-service.curiosityevents.svc.cluster.local:2181
         - name: KAFKA_ADVERTISED_HOST_NAME
-          value: kafka-service.kafka.svc.cluster.local
+          value: kafka-service.curiosityevents.svc.cluster.local
         image: wurstmeister/kafka
         imagePullPolicy: IfNotPresent
         name: kafka

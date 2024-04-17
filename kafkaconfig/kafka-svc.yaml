@@ -4,7 +4,7 @@ metadata:
   labels:
     app: kafka
   name: kafka-service
-  namespace: kafka
+  namespace: curiosityevents
 spec:
   ports:
    - targetPort: 9092
