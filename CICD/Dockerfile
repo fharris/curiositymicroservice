@@ -18,9 +18,16 @@ COPY --chown=jenkins:jenkins plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
 COPY --chown=jenkins:jenkins casc.yaml /var/casc_home/casc.yaml
 COPY --chown=jenkins:jenkins jenkins-cli.jar /var/jenkins_home/jenkins-cli.jar
+
 COPY --chown=jenkins:jenkins configurecuriosity.xml /var/jenkins_home/configurecuriosity.xml
 COPY --chown=jenkins:jenkins buildcuriosity.xml /var/jenkins_home/buildcuriosity.xml
 COPY --chown=jenkins:jenkins deploycuriosity.xml /var/jenkins_home/deploycuriosity.xml
+
+COPY --chown=jenkins:jenkins configurechampionship.xml /var/jenkins_home/configurechampionship.xml
+COPY --chown=jenkins:jenkins buildchampionship.xml /var/jenkins_home/buildchampionship.xml
+COPY --chown=jenkins:jenkins deploychampionship.xml /var/jenkins_home/deploychampionship.xml
+
+
 COPY --chown=jenkins:jenkins jenkins_credentials.xml /var/jenkins_home/jenkins_credentials.xml
 
 COPY --chown=jenkins:jenkins import-jobs.sh /var/jenkins_home/import-jobs.sh

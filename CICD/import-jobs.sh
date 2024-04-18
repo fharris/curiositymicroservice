@@ -13,3 +13,10 @@ echo Importing job buildcuriosity:
 java -jar /var/jenkins_home/jenkins-cli.jar -s http://0.0.0.0:8080 -auth admin:123 create-job buildcuriosity < /var/jenkins_home/buildcuriosity.xml
 echo Importing job deploycuriosity:
 java -jar /var/jenkins_home/jenkins-cli.jar -s http://0.0.0.0:8080 -auth admin:123 create-job deploycuriosity < /var/jenkins_home/deploycuriosity.xml
+
+echo Importing job configurechampionship:
+java -jar /var/jenkins_home/jenkins-cli.jar -s http://0.0.0.0:8080 -auth admin:123 create-job configurchampionship < /var/jenkins_home/configurechampionship.xml
+echo Importing job buildcuriosity:
+java -jar /var/jenkins_home/jenkins-cli.jar -s http://0.0.0.0:8080 -auth admin:123 create-job buildchampionship < /var/jenkins_home/buildchampionship.xml
+echo Importing job deploycuriosity:
+java -jar /var/jenkins_home/jenkins-cli.jar -s http://0.0.0.0:8080 -auth admin:123 create-job deploychampionship < /var/jenkins_home/deploychampionship.xml
