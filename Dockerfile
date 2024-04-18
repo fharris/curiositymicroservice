@@ -1,12 +1,10 @@
 FROM maven:3.8.4-jdk-11-slim as maven
 
-
 ARG SPRING_DATASOURCE_USERNAME 
 ARG SPRING_DATASOURCE_PASSWORD
 ARG SPRING_DATASOURCE_HOST
 ARG SPRING_DATASOURCE_PORT
 ARG SPRING_DATASOURCE_DBNAME
-
 
 #using localhost:9092 for local kafka to avoid the need of setting up a kafka cluster inside the context of VBStudio
 #once in kubernetes values will come from configmap environment variables

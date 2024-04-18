@@ -16,7 +16,7 @@ java -jar /var/jenkins_home/jenkins-cli.jar -s http://0.0.0.0:8080 -auth admin:1
 
 echo Importing job configurechampionship:
 java -jar /var/jenkins_home/jenkins-cli.jar -s http://0.0.0.0:8080 -auth admin:123 create-job configurchampionship < /var/jenkins_home/configurechampionship.xml
-echo Importing job buildcuriosity:
+echo Importing job buildchampionship:
 java -jar /var/jenkins_home/jenkins-cli.jar -s http://0.0.0.0:8080 -auth admin:123 create-job buildchampionship < /var/jenkins_home/buildchampionship.xml
-echo Importing job deploycuriosity:
+echo Importing job deploychampionship:
 java -jar /var/jenkins_home/jenkins-cli.jar -s http://0.0.0.0:8080 -auth admin:123 create-job deploychampionship < /var/jenkins_home/deploychampionship.xml
