@@ -16,6 +16,11 @@ credentials:
           password: "{AQAAABAAAAAQI3cvLJEs8vif2xMoO6LAg25wt+RDVpWJGaZOcf/wCi8=}"
           scope: GLOBAL
           username: "curiosity"
+      - usernamePassword:
+          id: "id-mysql-championship"
+          password: "{AQAAABAAAAAQI3cvLJEs8vif2xMoO6LAg25wt+RDVpWJGaZOcf/wCi8=}"
+          scope: GLOBAL
+          username: "championship"
       - string:
           description: "id-mysql-host"
           id: "id-mysql-host"
