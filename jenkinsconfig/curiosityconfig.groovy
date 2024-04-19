@@ -62,14 +62,7 @@ pipeline {
         }
       }
     }
-      
-        stage('Checking Curiosity in Kubernetes') {
-        steps {
-          withKubeConfig( credentialsId: 'jenkins-token-kubernetes', serverUrl: kubernetes_proxy ) {
-              sh "kubectl get deployments -n curiosityevents"
-              sh "kubectl get pods -n curiosityevents"
-          }
-        }
+  
 
    
 
