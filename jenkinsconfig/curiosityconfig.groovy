@@ -57,10 +57,19 @@ pipeline {
             sh "kubectl -n curiosityevents exec -it `kubectl -n curiosityevents get --no-headers=true pods -l app=mysql-db -o custom-columns=:metadata.name` -- mysql -h 127.0.0.1 -u root -pmySQLpword#2023 < ./databaseconfig/create-curiositydb-resources.sql"
             sh 'kubectl -n curiosityevents create secret generic curiosityms-mysql-db-secret --from-literal=SPRING_DATASOURCE_PASSWORD=$MYSQL_CREDENTIALS_PSW --from-literal=SPRING_DATASOURCE_USERNAME=$MYSQL_CREDENTIALS_USR --dry-run=client -o yaml > curiosityms-mysql-db-secret.yaml'
             sh "kubectl apply -f curiosityms-mysql-db-secret.yaml"
+            sh "kubectl -n curiosityevents rollout restart deployment/curiosityms-deployment"
             sh "kubectl apply -f ./appconfig/."
         }
       }
     }
+      
+        stage('Checking Curiosity in Kubernetes') {
+        steps {
+          withKubeConfig( credentialsId: 'jenkins-token-kubernetes', serverUrl: kubernetes_proxy ) {
+              sh "kubectl get deployments -n curiosityevents"
+              sh "kubectl get pods -n curiosityevents"
+          }
+        }
 
    
 
