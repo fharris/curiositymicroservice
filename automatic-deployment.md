@@ -280,7 +280,19 @@ if the jobs fails, give it a new try because there is a command that takes a bit
 Once the job runs successfully if you run the following command, you should see the application running in your browser at **HTTP://localhost:9000** :
 
 ```
-kubectl -n curiositymonolith port-forward svc/curiositymonolith-service-lb 9000:80
+kubectl -n curiosityevents port-forward svc/curiosityms-service-clusterip 9000:80
+```
+
+From another terminal tab test it with curl :
+
+curl localhost:9000/wiki/curiosity/users/1
+
+```
+curl localhost:9000/wiki/curiosity/topics/Fernando/Spain
+```
+
+```
+curl localhost:9000/wiki/curiosity/page/Fernando/Portugal/Spain
 ```
 
 <img width="1440" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/809a4659-26b4-4e1a-83df-1bd14e5b4760">

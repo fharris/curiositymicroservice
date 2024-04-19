@@ -22,6 +22,7 @@ RUN mvn package
 
 FROM openjdk:11-jre-slim
 
+COPY --from=maven src/* ./src/
 COPY --from=maven target/curiosity-0.0.1-SNAPSHOT.jar ./app.jar
 
 ENTRYPOINT ["java","-jar","/app.jar"]

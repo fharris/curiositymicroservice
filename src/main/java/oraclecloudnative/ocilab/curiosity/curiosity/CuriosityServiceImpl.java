@@ -32,7 +32,7 @@ public class CuriosityServiceImpl implements CuriosityService{
     @Override
     public Page getPage(QueryPageDTO queryPageDTO) {
         
-        log.info("preparing to call wiki client to get a page");
+        log.info("preparing to call wiki client to get a page FHF ");
         try {
             page = wikipediaServiceClient.sendQueryPage(queryPageDTO);
             log.info(page.getKeyUrl());

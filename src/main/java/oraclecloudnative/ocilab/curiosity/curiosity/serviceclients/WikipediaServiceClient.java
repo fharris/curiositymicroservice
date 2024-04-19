@@ -48,7 +48,7 @@ public class WikipediaServiceClient {
     }
     /* Returns a Json string with all the articles available*/
     public String sendSubjectTopicPages(String gsrSearch){
-        log.info("inside sendSubjectTopicPages");
+        log.info("inside sendSubjectTopicPages FHF");
         String gsrlimit = "3";
         String url = "https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=" + gsrlimit + "&gsrsearch=" + gsrSearch;    
         RestTemplate restTemplate2 = new RestTemplate();
