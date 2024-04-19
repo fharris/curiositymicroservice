@@ -6,16 +6,24 @@ echo "############################"
 echo "############################"
 echo "Deploying Curiosity Microservice"
 echo "############################"
+kubectl apply -f appconfig/curiosityms-namespace.yaml;
 echo "############################"
 echo "############################"
 echo "############################"
 echo "Configuring Kafka and Zookeeper"
-kubectl apply -f appconfig/curiosityms-namespace.yaml;
+echo "############################"
+echo "############################"
+echo "############################"
+echo "############################"
 kubectl apply -f kafkaconfig/zookeeper-deploy.yaml;
 kubectl apply -f kafkaconfig/zookeeper-svc.yaml;
 kubectl apply -f kafkaconfig/kafka-deploy.yaml; 
 kubectl apply -f kafkaconfig/kafka-svc.yaml;
-
+echo "############################"
+echo "############################"
+echo "Configuring MySQL Database"
+echo "############################"
+echo "############################"
 kubectl apply -f ./databaseconfig/.
 echo ".... waiting for MySQL pod to run to run db configuration...Deploying Curiosity Microservice"
 echo "############################"
