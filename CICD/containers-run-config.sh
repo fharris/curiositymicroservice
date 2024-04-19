@@ -94,7 +94,7 @@ echo Configuring MySQL...
 mysql -h 127.0.0.1 --port 9306 -u root -pmySQLpword#2023 < ./databaseconfig/create-curiositydb-resources.sql
 echo "User curiosity databases:"
 mysql -h 127.0.0.1 --port 9306 -u curiosity -pWelcome#1 -e 'SHOW DATABASES;'
-echo "User championship databases:"
-mysql -h 127.0.0.1 --port 9306 -u championship -pWelcome#1 -e 'SHOW DATABASES;'
+#echo "User championship databases:"
+#mysql -h 127.0.0.1 --port 9306 -u championship -pWelcome#1 -e 'SHOW DATABASES;'
 
 echo Done
