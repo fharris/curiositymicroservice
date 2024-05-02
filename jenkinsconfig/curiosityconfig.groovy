@@ -47,6 +47,7 @@ pipeline {
         }
       }
     }
+    
       
       stage('Configuring Curiosity in Kubernetes') {
       steps {
