@@ -63,9 +63,13 @@ echo Configuring Gogs...
 #or implementing a wait to press button and ask user to open browser and configure before continuing
 
 echo "+---------------------------------------------------------------------------+"
-echo "|    **ATENTION**                                                           |"
+echo "|                     **ATENTION**                                          |"
 echo "| Open your browser in localhost:10880 and configure Gogs before continuing.|"
-echo "| Follow the steps explained in Github and press the blue button to install|"
+echo "| Follow the steps explained in Github and press the blue button to install |"
+echo "|                                                                           |"
+echo "|                                                                           |"
+echo "|                                                                           |"
+echo "|                                                                           |"
 echo "| When you're done return to this script and press *ENTER* to continue      |"
 echo "|                                                                           |"
 echo "+---------------------------------------------------------------------------+"
