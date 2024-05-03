@@ -4,7 +4,7 @@ metadata:
   name: jenkins-role
   namespace: curiosityevents
 rules:
-- apiGroups: ["","apps"]
-  resources: ["secrets", "services","configmaps","events","deployments","pods"]
+- apiGroups: ["","apps"," networking.k8s.io"]
+  resources: ["secrets", "services","configmaps","events","deployments","pods","ingresses"]
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
