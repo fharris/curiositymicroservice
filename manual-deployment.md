@@ -49,12 +49,27 @@ Deploy the application with the following command:
 kubectl apply -f ./appconfig/.
 ```
 
-***5-Run the application***
+***5-Test the application***
 If all goes well, check that you have successfully deployed the application and the database with the following command:
 
 ```
 kubectl get pods -n curiosityevents
 ```
 
-You should be able to see the curiosity microservice and respective database pods running. 
+You should be able to see 4 applications running. The curiosity microservice pods, the MySQL database pods and the Zookeeper and Kafka pods:
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/8be1e2f8-dcd6-4215-8943-5338dd837f13)
+
+
+
+
+Open the repository for the curiosityfrontendmicroservice and repeat the equivalent steps to install it as well.
+
+***6-Install the Curiosity frontend***
+
+[Curiosity Frontend Installation Page](https://github.com/fharris/curiositymicroservice/edit/main/manual-deployment.md)
+
+
+When the frontend is installed, open the repository for the championship microservice and repeat the equivalent steps to install it as well.
+
 
