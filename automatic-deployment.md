@@ -119,9 +119,12 @@ you should see the docker network cloudnative with 5 containers running, each sh
 
 ![image](https://github.com/fharris/curiositymonolith/assets/17484224/166d4a97-b70a-439b-9853-739a49a21186)
 
-
+**Continue with Gogs Configuration**
 
 Get back to the Gogs Console in the browser. Just retype  [http://localhost:10880](http://localhost:10880) and sign in with the user **gogs-user** and the password you created before. 
+
+
+**GOGS: Migrate repositories from Github**
 
 Click the little plus "+" signal next to your avatar and select New Migration:
 
@@ -138,7 +141,11 @@ Click the little plus "+" signal next to your avatar and select New Migration an
 
 Now for the frontend, click the little plus "+" signal next to your avatar and select New Migration and replace the Clone Address with the GitHub address of the original repository which is now [https://github.com/fharris/curiosityfrontendmicroservice](https://github.com/fharris/curiosityfrontendmicroservice) .
 
-We will now configure Webhooks for the Gogs-Jenkins communication. From your codebase click Settings (the little tools icon on the top right of the screen) or navigate directly to [http://localhost:10880/gogs-user/curiositymonolith/settings](http://localhost:10880/gogs-user/curiositymonolith/settings) . Click Webhooks, and Add a New Webooks of type Gogs as per next figure:
+
+
+**GOGS: Create Webhooks for Jenkins**
+
+We will now configure Webhooks for the Gogs-Jenkins communication. From your codebase click Settings (the little tools icon on the top right of the screen) or navigate directly to [http://localhost:10880/gogs-user/curiositymicroservice/settings](http://localhost:10880/gogs-user/curiositymicroservice/settings) . Click Webhooks, and Add a New Webooks of type Gogs as per next figure:
 
 <img width="1057" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/280c7bbc-51d1-4a5c-8d0a-1d6b5f178ab6">
 
@@ -148,9 +155,7 @@ Replace the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosi
 <img width="997" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/07981dab-68ac-4420-971b-b5ecfe4eb257">
 
 
-
 If all goes well, you should get something as Figure gogs8. Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job=buildcuriosity](http://jenkins:8080/gogs-webhook/?job=buildcuriosity) ).
-
 
 
 ![](RackMultipart20231003-1-aq9tt0_html_13b8dd7759df0b57.png)
@@ -166,6 +171,21 @@ Now, as illustrated in Figure gogs9, inside the webhook configuration you will s
 
 Figure gogs9
 
+Repeat the previous steps to create the webhooks for the other 2 services:
+
+Navigate directly to [http://localhost:10880/gogs-user/championshipmicroservice/settings](http://localhost:10880/gogs-user/championshipmicroservice/settings) .  
+
+Replace the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildchampionship](http://jenkins:8080/gogs-webhook/?job=buildchampionship)
+
+Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job=buildchampionship](http://jenkins:8080/gogs-webhook/?job=buildchampionship) ). Press the Test Delivery button on the right bottom of the screen.
+
+
+
+Navigate directly to [http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings](http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings) .  
+
+Replace the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend](http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend)
+
+Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend](http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend) ). Press the Test Delivery button on the right bottom of the screen.
 
 
 
