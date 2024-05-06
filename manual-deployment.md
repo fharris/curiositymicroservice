@@ -67,7 +67,7 @@ Open the repository for the curiosityfrontendmicroservice and repeat the equival
 
 ***6-Install the Curiosity frontend***
 
-[Curiosity Frontend Installation Page](https://github.com/fharris/curiosityfrontendmicroservice/main/manual-deployment.md)
+[Curiosity Frontend Installation Page](https://github.com/fharris/curiosityfrontendmicroservice/blob/main/manualdeployment.md)
 
 
 When the frontend is installed, open the repository for the championship microservice and repeat the equivalent steps to install it as well.
