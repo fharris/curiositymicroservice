@@ -127,12 +127,15 @@ you should see the docker network cloudnative with 5 containers running, each sh
 
 **GOGS: Continue with Gogs Configuration**
 
-Get back to the Gogs Console in the browser. Just retype  [http://localhost:10880](http://localhost:10880) and sign in with the user **gogs-user** and the password you created before. 
+Get back to the Gogs Console in the browser. Just retype  [http://localhost:10880](http://localhost:10880) and sign in with the user **gogs-user** and the password you created before:
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/386f33d7-b9e5-47d8-b085-41ecd1f3f16d)
+
 
 
 **GOGS: Migrate repositories from Github**
 
-Click the little plus "+" signal next to your avatar and select New Migration:
+Click the little plus "+" signal next to your avatar and select *New Migration*:
 
 <img width="985" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/303652e6-1048-4a79-ac4d-8b9600d64f72">
 
