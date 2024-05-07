@@ -236,9 +236,8 @@ Start using Jenkins
 <img width="1001" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/82f9ba77-4d72-4d56-a7c7-8b44cb6c196f">
 
 
-Once logged in you should see Jenkins with 9 jobs configured. Three for each microservice. The 3 build jobs should have at least one failed build which was triggered when you tested the Gogs Webhook. The first run takes a few minutes:
+Once logged in you should see Jenkins with 9 jobs configured. Three for each microservice. The 3 build jobs (buildcuriosity, buildchampionship and buildcuriosityfrontend) should have at least one failed build, which was triggered when you tested the Gogs Webhook. The first run takes a few minutes:
 
-<img width="1428" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/2e32f272-bc5e-430e-8dbc-35c033ebf370">
 
 ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/56978b4a-65a4-4110-a5e2-7e292b518e19)
 
@@ -254,7 +253,7 @@ In *Manage Jenkins*,  Click *Credentials*:
 **Update Kubernetes token:**
 
 
-Select the jenkins-token-kubernetes to edit and replace with the token you generated before.
+Select the **jenkins-token-kubernetes** to edit and replace with the token you generated before.
 
 <img width="1387" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/c5341eae-8ef5-41ec-b8ae-6fb1fa256f90">
 
@@ -265,7 +264,7 @@ If you don't remember the token, open a terminal and run the following command t
 kubectl get secrets jenkins-task-sa-secret -o json | jq -Mr '.data["token"]' | base64 -D
 ```
 
-and after clicking Update, replace the secret with it:
+and after clicking *Update*, replace the secret with it:
 <img width="1346" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/8e5febeb-2bad-4e0d-bb14-0cfdc52e55b9">
 
 
@@ -285,7 +284,7 @@ Select the id-mysql credential to update:
 Keep the username curiosity and replace the password with Welcome#1    :
 <img width="1371" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/2ee875ae-b34e-4730-98cc-467acc61119a">
 
-Click Save.
+Click *Save*.
 
 **Update Kubernetes API Proxy endpoint**
 
@@ -296,11 +295,13 @@ In Manage Jenkins, click System or go directly to http://localhost:8080/manage/c
 Search the environment variables and update with the server address of your Kubernetes cluster:
 <img width="1390" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/c6f839b4-822c-4e25-8117-29cd8af695d0">
 
-Click Save.
+Click *Save*.
 
 
 Back to the Dashboard schedule a build for the job **buildcuriosity** as we need to generate an image to pull to the local container repos:
 <img width="1427" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/574323a5-1627-4306-8c1b-f00c80cf02f8">
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/29666b3b-2861-483c-b3fc-79414c861908)
 
 
 
@@ -308,10 +309,14 @@ When the job is finished, if the Building Image step is green
 
 <img width="1434" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/8bb507ff-469b-413f-b7c5-e352d56e9832">
 
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/7845111f-6038-47af-9d54-71e7a46e7f1e)
+
+
 and its logs show that the image was pushed to the local repository, then we should be OK to continue:
 
 <img width="1431" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/ba273334-8a67-48ec-b366-b5df4e2f60a4">
 
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/aba2aef6-62cc-43dc-b15e-91eb9e6f33c2)
 
 
 ![](RackMultipart20231003-1-aq9tt0_html_be3cc375e5563d84.png)
@@ -320,6 +325,9 @@ Return to the Dashboard and run the **configurecuriosity** job to install the ap
 
 
 ![image](https://github.com/fharris/curiositymonolith/assets/17484224/065f90fb-84d7-4ccf-936d-d7cb2582be9b)
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/571287e6-1484-4e8b-a239-c0fa0f407403)
+
 
 
 ![](RackMultipart20231003-1-aq9tt0_html_9099957d1166cc4d.png)
@@ -331,7 +339,9 @@ if the jobs fails, give it a new try because there is a command that takes a bit
 ![image](https://github.com/fharris/curiositymonolith/assets/17484224/1656451e-4252-4277-be3b-0f0aced0e897)
 
 
-To deploy the championshipmicroservice, and the curiosityfrontendmicroservice all you have to do is to run the configurechampionship and the configurecuriosityfrontend before running the buildchampionship and the buildcuriosityfrontend.
+When the 3 jobs are green, then the CI/CD pipeline is set. Now, whenever you need to make a change in the code, all you need to do is push the new version of the code and the build and deploy jobs will run and take care of the rest. The configuration job runs only once when things are being set up for the first time.
+
+To deploy the championshipmicroservice and the curiosityfrontendmicroservice, all you have to do is to run the configurechampionship and the configurecuriosityfrontend before running the buildchampionship and the buildcuriosityfrontend.
 As we are relying on a Traefik ingress controller for our local K3s Kubernetes cluster, you should see the application running in your browser at **HTTP://localhost:3000** :
 
 
