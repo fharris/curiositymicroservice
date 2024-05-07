@@ -163,7 +163,8 @@ After clicking the green button to start the migration, if all goes well, you sh
 
 We will now configure Webhooks for the Gogs-Jenkins communication. From your codebase click Settings (the little tools icon on the top right of the screen) or navigate directly to [http://localhost:10880/gogs-user/curiositymicroservice/settings](http://localhost:10880/gogs-user/curiositymicroservice/settings) . Click Webhooks, and Add a New Webooks of type Gogs as per next figure:
 
-<img width="1057" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/280c7bbc-51d1-4a5c-8d0a-1d6b5f178ab6">
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/6772103b-32d4-44f2-a05d-3baf4ccedf41)
+
 
 
 Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosity](http://jenkins:8080/gogs-webhook/?job=buildcuriosity) which is where Jenkins CI/CD will be waiting for Gogs notifications for the curiosity microservice. Make sure the Content-Type is application/json, and that there is no Secret configured. Before clicking the green button to create the Webhook ensure the Just the Push event option is selected and the Active box is enabled. Next figure  shows how to do it:
