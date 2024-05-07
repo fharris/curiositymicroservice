@@ -291,11 +291,9 @@ if the jobs fails, give it a new try because there is a command that takes a bit
 ![image](https://github.com/fharris/curiositymonolith/assets/17484224/1656451e-4252-4277-be3b-0f0aced0e897)
 
 
-Once the job runs successfully if you run the following command, you should see the application running in your browser at **HTTP://localhost:9000** :
+To deploy the championshipmicroservice, and the curiosityfrontendmicroservice all you have to do is to run the configurechampionship and the configurecuriosityfrontend before running the buildchampionship and the buildcuriosityfrontend.
+As we are relying on a Traefik ingress controller for our local K3s Kubernetes cluster, you should see the application running in your browser at **HTTP://localhost:3000** :
 
-```
-kubectl -n curiosityevents port-forward svc/curiosityms-service-clusterip 9000:80
-```
 
 From another terminal tab test it with curl :
 
