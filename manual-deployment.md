@@ -74,7 +74,8 @@ When the frontend is installed, open the repository for the championship microse
 
 ***7-Install the Championship microservice***
 
-[Championship Microservice Installation Page](https://github.com/fharris/curiositychampionship/blob/main/manual-deployment.md)
+[Championship Microservice Installation Page](https://github.com/fharris/championshipmicroservice/blob/main/manual-deployment.md)
+
 
 
 
