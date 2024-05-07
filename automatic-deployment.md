@@ -423,19 +423,20 @@ and you should see the curiosity frontend pods running in the namespace as well:
 
 As we are relying on a Traefik ingress controller for our local K3s Kubernetes cluster, you should see the application running in your browser at **HTTP://localhost:3000** :
 
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/193fbae0-1578-44d1-9fb7-e27e4277a006)
 
-
-
-From another terminal tab test it with curl :
-
-curl localhost:9000/wiki/curiosity/users/1
-
+Try the application against its APIs as well with curl. From another terminal tab run the following examples:
 ```
-curl localhost:9000/wiki/curiosity/topics/Fernando/Spain
+curl localhost/wiki/curiosity/users/1
 ```
-
 ```
-curl localhost:9000/wiki/curiosity/page/Fernando/Portugal/Spain
+curl localhost/wiki/curiosity/topics/Fernando/Spain
+```
+```
+curl localhost/wiki/curiosity/page/Fernando/Portugal/Spain
+```
+```
+curl localhost/leaders/
 ```
 
 <img width="1440" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/809a4659-26b4-4e1a-83df-1bd14e5b4760">
@@ -443,7 +444,7 @@ curl localhost:9000/wiki/curiosity/page/Fernando/Portugal/Spain
 
 And that's it!!
 
-The application is running and the CICD with Jenkins its ready! 
+The application is running and the CICD with Jenkins is ready! 
 Try to clone the code and make some changes to see the CI/CD being triggered now!
 
 Have fun!
