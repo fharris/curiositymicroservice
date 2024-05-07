@@ -198,11 +198,12 @@ Figure gogs9
 
 Repeat the previous steps to create the webhooks for the other 2 services:
 
-Navigate directly to [http://localhost:10880/gogs-user/championshipmicroservice/settings](http://localhost:10880/gogs-user/championshipmicroservice/settings) .  Click Webhooks, and Add a New Webooks of type Gogs. Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildchampionship](http://jenkins:8080/gogs-webhook/?job=buildchampionship) . Click the link for the webhook, which should be the same as the Jenkins endpoint (...jenkins:8080/gogs-webhook/?job=buildchampionship) and press the **Test Delivery** button on the right bottom of the screen.
+Navigate directly to [http://localhost:10880/gogs-user/championshipmicroservice/settings](http://localhost:10880/gogs-user/championshipmicroservice/settings) .  Click Webhooks, and Add a New Webooks of type Gogs. Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildchampionship](http://jenkins:8080/gogs-webhook/?job=buildchampionship) . Click the link for the webhook, which should be the same as the Jenkins endpoint (...jenkins:8080/gogs-webhook/?job=buildchampionship) and press the **Test Delivery** button on the right bottom of the screen. The following image illustrates the process for the championshipmicroservice:
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/f9263db3-5e07-497d-b5e6-0fd9628c6585)
 
 
-
-Navigate directly to [http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings](http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings) .  Click Webhooks, and Add a New Webooks of type Gogs. Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend](http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend) . Click the link for the webhook, which should be the same as the Jenkins endpoint (...jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend). Press the **Test Delivery** button on the right bottom of the screen.
+Repeat the process for curiosityfrontendmicroservice. Navigate directly to [http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings](http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings) .  Click Webhooks, and Add a New Webooks of type Gogs. Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend](http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend) . Click the link for the webhook, which should be the same as the Jenkins endpoint (...jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend). Press the **Test Delivery** button on the right bottom of the screen.
 
 4. **Configuring Jenkins**
 
