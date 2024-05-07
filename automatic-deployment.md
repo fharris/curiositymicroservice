@@ -182,7 +182,12 @@ Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job
 
 Figure gogs8
 
-Now, as illustrated in Figure gogs9, inside the webhook configuration you will see a little **Test Delivery** button on the right bottom of the screen. If you click it you should get a successful test and an event delivered to your local Jenkins:
+Now, inside the webhook configuration you will see a little **Test Delivery** button on the right bottom of the screen: 
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/073c1ba7-99fa-4a24-8486-7d5708b39e22)
+
+
+If you click it you should get a successful test and an event delivered to your local Jenkins:
 
 <img width="1090" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/fb89e807-40c2-47da-b1a9-f53d3839553a">
 
