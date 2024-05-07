@@ -236,10 +236,11 @@ Start using Jenkins
 <img width="1001" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/82f9ba77-4d72-4d56-a7c7-8b44cb6c196f">
 
 
-Once logged in you should see Jenkins with 9 jobs configured. Three for each microservice. The 3 build jobs should have at least a failed build which was triggered when you tested the Gogs Webhook. The first run takes a few minutes.
+Once logged in you should see Jenkins with 9 jobs configured. Three for each microservice. The 3 build jobs should have at least one failed build which was triggered when you tested the Gogs Webhook. The first run takes a few minutes:
 
 <img width="1428" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/2e32f272-bc5e-430e-8dbc-35c033ebf370">
 
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/56978b4a-65a4-4110-a5e2-7e292b518e19)
 
 
 
