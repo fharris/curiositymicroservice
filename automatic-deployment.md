@@ -151,12 +151,20 @@ Click the little plus "+" signal next to your avatar. select New Migration and r
 
 ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/7c3d36a7-0b35-47ad-9f8e-aeb8632743ed)
 
+And the next image shows the example for the curiosityfrontendmicroservice:
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/1aeb133f-8531-41cc-a506-dd0e6a202b61)
+
 
 After clicking the green button to start the migration, if all goes well, you should be able to see your codebase of our 3 microservices at:
-[http://localhost:10880/gogs-user/curiositymicroservice](http://localhost:10880/gogs-user/curiositymicroservice)
-[http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice)
-[http://localhost:10880/gogs-user/curiosityfrontendmicroservice](http://localhost:10880/gogs-user/curiosityfrontendmicroservice) 
+- [http://localhost:10880/gogs-user/curiositymicroservice](http://localhost:10880/gogs-user/curiositymicroservice)
+- [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice)
+- [http://localhost:10880/gogs-user/curiosityfrontendmicroservice](http://localhost:10880/gogs-user/curiosityfrontendmicroservice)
 
+As illustrated in the next figure:
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/9e1ab4a4-8374-4771-808f-3328c10b45b8)
+  
 
 
 **GOGS: Create Webhooks for Jenkins**
