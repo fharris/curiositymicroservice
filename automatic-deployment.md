@@ -147,9 +147,15 @@ Replace the Clone Address with the GitHub address of the original repository whi
 
 Let's repeat the previous step to import the other 2 microservices code from GitHub, **championshipmicroservice** and **curiosityfrontendmicroservice**:
 
-Click the little plus "+" signal next to your avatar. select New Migration and replace the Clone Address with the GitHub address of the original repository which is now https://github.com/fharris/championshipmicroservice and https://github.com/fharris/curiosityfrontendmicroservice respectively. 
+Click the little plus "+" signal next to your avatar. select New Migration and replace the Clone Address with the GitHub address of the original repository which is now https://github.com/fharris/championshipmicroservice and https://github.com/fharris/curiosityfrontendmicroservice respectively. The image below shows the example for the championshipmicroservice:
 
-After clicking the green button to start the migration, if all goes well, you should be able to see your codebase at [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice) and [http://localhost:10880/gogs-user/curiosityfrontendmicroservice](http://localhost:10880/gogs-user/curiosityfrontendmicroservice) .
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/7c3d36a7-0b35-47ad-9f8e-aeb8632743ed)
+
+
+After clicking the green button to start the migration, if all goes well, you should be able to see your codebase of our 3 microservices at:
+[http://localhost:10880/gogs-user/curiositymicroservice](http://localhost:10880/gogs-user/curiositymicroservice)
+[http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice)
+[http://localhost:10880/gogs-user/curiosityfrontendmicroservice](http://localhost:10880/gogs-user/curiosityfrontendmicroservice) 
 
 
 
