@@ -332,9 +332,6 @@ This version of the **configurecuriosity** installs Kafka and Zookeeper besides 
 
 If the job fails, give it a new try because there is a command that takes a bit longer to run the first time it runs.
 
-![image](https://github.com/fharris/curiositymonolith/assets/17484224/1656451e-4252-4277-be3b-0f0aced0e897)
-
-
 When the 3 jobs for the curiosity microservice are green, then the CI/CD pipeline is set for it. Now, whenever you need to make a change in the code, all you need to do is push the new version of the code and the build and deploy jobs will run and take care of the rest. 
 
 To deploy the **championshipmicroservice** you just need to repeat these last steps:
