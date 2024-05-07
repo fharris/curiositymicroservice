@@ -321,20 +321,31 @@ Return to the Dashboard and run the **configurecuriosity** job to install the ap
 
 ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/571287e6-1484-4e8b-a239-c0fa0f407403)
 
+This version of the **configurecuriosity** installs Kafka and Zookeeper besides the MySQL database and runs only once, when things are being set up for the first time.
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/bcccc2d5-d79e-41f5-82c5-a1977d2fa3fd)
 
 
 ![](RackMultipart20231003-1-aq9tt0_html_9099957d1166cc4d.png)
 
 ![](RackMultipart20231003-1-aq9tt0_html_623f9f7e813e664e.png)
 
-if the jobs fails, give it a new try because there is a command that takes a bit longer to run the first time it runs...
+If the job fails, give it a new try because there is a command that takes a bit longer to run the first time it runs.
 
 ![image](https://github.com/fharris/curiositymonolith/assets/17484224/1656451e-4252-4277-be3b-0f0aced0e897)
 
 
-When the 3 jobs are green, then the CI/CD pipeline is set. Now, whenever you need to make a change in the code, all you need to do is push the new version of the code and the build and deploy jobs will run and take care of the rest. The configuration job runs only once when things are being set up for the first time.
+When the 3 jobs for the curiosity microservice are green, then the CI/CD pipeline is set for it. Now, whenever you need to make a change in the code, all you need to do is push the new version of the code and the build and deploy jobs will run and take care of the rest. 
 
-To deploy the championshipmicroservice and the curiosityfrontendmicroservice, all you have to do is to run the configurechampionship and the configurecuriosityfrontend before running the buildchampionship and the buildcuriosityfrontend.
+To deploy the **championshipmicroservice** you just need to repeat these last steps:
+
+- Schedule a build for the buildchampionship job: this will build and push the image to the local repository.
+- Schedule a build for the configurechampionship job: this will configure things to be used by the microservice, such as the database, etc.
+- Schedule a new build for the buildchampionship job: this will rebuild the image, push it and automatically trigger the deploychampionship job as well.
+
+
+
+and the curiosityfrontendmicroservice, all you have to do is to run the configurechampionship and the configurecuriosityfrontend before running the buildchampionship and the buildcuriosityfrontend.
 As we are relying on a Traefik ingress controller for our local K3s Kubernetes cluster, you should see the application running in your browser at **HTTP://localhost:3000** :
 
 
