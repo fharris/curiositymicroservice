@@ -299,7 +299,6 @@ Click *Save*.
 
 
 Back to the Dashboard schedule a build for the job **buildcuriosity** as we need to generate an image to pull to the local container repos:
-<img width="1427" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/574323a5-1627-4306-8c1b-f00c80cf02f8">
 
 ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/29666b3b-2861-483c-b3fc-79414c861908)
 
@@ -307,14 +306,11 @@ Back to the Dashboard schedule a build for the job **buildcuriosity** as we need
 
 When the job is finished, if the Building Image step is green 
 
-<img width="1434" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/8bb507ff-469b-413f-b7c5-e352d56e9832">
 
 ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/7845111f-6038-47af-9d54-71e7a46e7f1e)
 
 
 and its logs show that the image was pushed to the local repository, then we should be OK to continue:
-
-<img width="1431" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/ba273334-8a67-48ec-b366-b5df4e2f60a4">
 
 ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/aba2aef6-62cc-43dc-b15e-91eb9e6f33c2)
 
@@ -322,9 +318,6 @@ and its logs show that the image was pushed to the local repository, then we sho
 ![](RackMultipart20231003-1-aq9tt0_html_be3cc375e5563d84.png)
 
 Return to the Dashboard and run the **configurecuriosity** job to install the application and database in Kubernetes:
-
-
-![image](https://github.com/fharris/curiositymonolith/assets/17484224/065f90fb-84d7-4ccf-936d-d7cb2582be9b)
 
 ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/571287e6-1484-4e8b-a239-c0fa0f407403)
 
