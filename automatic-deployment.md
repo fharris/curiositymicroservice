@@ -172,7 +172,10 @@ Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosi
 <img width="997" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/07981dab-68ac-4420-971b-b5ecfe4eb257">
 
 
-If all goes well, you should get something as Figure gogs8. Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job=buildcuriosity](http://jenkins:8080/gogs-webhook/?job=buildcuriosity) ).
+If all goes well, you should get something as the following figure. Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job=buildcuriosity](http://jenkins:8080/gogs-webhook/?job=buildcuriosity) ): 
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/c50f205b-232c-4cc6-9be4-f4c12abff5a2)
+
 
 
 ![](RackMultipart20231003-1-aq9tt0_html_13b8dd7759df0b57.png)
