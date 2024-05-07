@@ -176,7 +176,7 @@ If all goes well, you should get something as the following figure.
 
 ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/c50f205b-232c-4cc6-9be4-f4c12abff5a2)
 
-Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job=buildcuriosity](http://jenkins:8080/gogs-webhook/?job=buildcuriosity) ) and you should be back inside the webhook configuration:
+Click the name of the webhook, which should be the same as the jenkins endpoint (...jenkins:8080/gogs-webhook/?job=buildcuriosity) and you should be back inside the webhook configuration:
 
 ![](RackMultipart20231003-1-aq9tt0_html_13b8dd7759df0b57.png)
 
