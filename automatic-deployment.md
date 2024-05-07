@@ -1,4 +1,4 @@
-**Introduction**
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/11b3db34-59b7-4391-86c3-6971d32873ca)**Introduction**
 
 In the previous step, you have manually installed the application and test it with the browser and curl.  To replicate it in an automated way, by setting up a CI/CD pipeline, please follow the complete instructions here: https://github.com/fharris/curiositymicroservice/blob/main/automatic-deployment.md. You will certainly have a lot of fun doing it. In the end, you should be able to have an ecosystem containing a CI/CD toolchain powered by Jenkins and completely integrated with Gogs as a local Git server and Registry as a local Docker registry server. There is also a MySQL database running locally as a container. There is also a Dind or Docker in Docker container which is needed to help Jenkins container build containers. Everything will be running as a container inside a docker network called cloudnative network  For the runtime or the target against which Jenkins will be deploying, we are going to continue to use Kubernetes. **In our example, we are using Rancher Desktop with K3s. This is relevant because we already have a Traefik ingress controller installed.**  You can also see in the diagram the IP addresses for the cloudnative docker network (CIDR 172.18.0.0/16, which is predefined and shouldn’t change for you) and the Kubernetes cluster API (in our case 192.168.5.15:6443 and should almost certainly be different for you). Jenkins is the Master of Ceremony and will be responsible for managing builds and deployments. The exercises you are about to follow will test the efficiency of the CI/CD pipeline. The next Figure illustrates step-by-step, from 1 to 4, the flow of events that we need to learn to see how a change in the application's code will trigger the CI/CD toolchain and deploy a new version of the application. 
 
@@ -332,17 +332,91 @@ This version of the **configurecuriosity** installs Kafka and Zookeeper besides 
 
 If the job fails, give it a new try because there is a command that takes a bit longer to run the first time it runs.
 
-When the 3 jobs for the curiosity microservice are green, then the CI/CD pipeline is set for it. Now, whenever you need to make a change in the code, all you need to do is push the new version of the code and the build and deploy jobs will run and take care of the rest. 
+When the 3 jobs for the curiosity microservice are green, then the CI/CD pipeline is set for it. Now, whenever you need to make a change in the code, all you need to do is push the new version of the code and the build and deploy jobs will run and take care of the rest. To confirm the first deployment is OK, run the following command in your terminal:
+```
+kubectl -n curiosityevents get pods
+```
+
+and you should see the pods running in the namespace:
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/3e70295d-7cef-40dc-8382-e1903902de90)
+
 
 To deploy the **championshipmicroservice** you just need to repeat these last steps:
 
-- Schedule a build for the buildchampionship job: this will build and push the image to the local repository.
-- Schedule a build for the configurechampionship job: this will configure things to be used by the microservice, such as the database, etc.
-- Schedule a new build for the buildchampionship job: this will rebuild the image, push it and automatically trigger the deploychampionship job as well.
+- Schedule a build for the buildchampionship job: 
+
+  ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/51c81e2a-4468-4b97-be63-87cf0ddb3862)
+
+  this will build and push the image to the local repository:
+
+  ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/519a7d36-208d-442e-9d6e-e7727b62f1c0)
+
+
+- Schedule a build for the configurechampionship job:
+
+  ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/b7c361a0-e927-4d98-9146-249ee45a4959)
+
+
+this will configure things to be used by the microservice, such as the database, etc: 
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/5145d3c6-7162-434c-a0d5-cc9fb31cb9e2)
+
+
+- Schedule a new build for the buildchampionship job:
+
+  ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/6c394eef-9d6d-463e-8e35-3d4de214e69c)
+
+
+this will rebuild the image, push it and automatically trigger the deploychampionship job as well.
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/4f72f39e-6b03-4386-aa4b-6ea68d9afc37)
 
 
 
-and the curiosityfrontendmicroservice, all you have to do is to run the configurechampionship and the configurecuriosityfrontend before running the buildchampionship and the buildcuriosityfrontend.
+When the 3 jobs for the championship microservice are green, then the CI/CD pipeline is set for it. 
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/693e1793-9923-4016-8e3b-d534ba6caf04)
+
+
+Now, whenever you need to make a change in the code, all you need to do is push the new version of the code and the build and deploy jobs will run and take care of the rest. To confirm the first deployment is OK, run the following command in your terminal:
+```
+kubectl -n curiosityevents get pods
+```
+
+and you should see the championship pods, called consumerms running in the namespace as well:
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/82c9f340-db95-4a06-939e-7fb0c2a2291e)
+
+
+
+To deploy the **curiosityfrontendmicroservice** you just need to repeat the exact same  steps:
+
+- Schedule a build for the buildcuriosityfrontend job;
+ 
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/62b2419e-2e58-4c17-bcec-17ff5af5fb42)
+
+- Schedule a build for the configurecuriosityfrontend job;
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/00ff43fa-8cfb-46e1-95c8-6166d97bf49d)
+
+
+- Schedule a new build for the buildcuriosityfrontend job;
+
+  ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/45d47074-ff6c-4d9b-afb9-5eced353bc13)
+
+
+When the 3 jobs for the curiosityfrontend microservice are green, then the CI/CD pipeline is set for it. 
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/fa03ce42-667a-4d4e-aa45-b44f3715297e)
+
+Now, whenever you need to make a change in the code, all you need to do is push the new version of the code and the build and deploy jobs will run and take care of the rest. To confirm the first deployment is OK, run the following command in your terminal:
+```
+kubectl -n curiosityevents get pods
+```
+
+and you should see the curiosity frontend pods running in the namespace as well:
+
 As we are relying on a Traefik ingress controller for our local K3s Kubernetes cluster, you should see the application running in your browser at **HTTP://localhost:3000** :
 
 
