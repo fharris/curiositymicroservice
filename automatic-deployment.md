@@ -1,6 +1,6 @@
 **Introduction**
 
-In the previous step, you have manually installed the application and test it with the browser and curl.  To replicate it in an automated way, by setting up a CI/CD pipeline, please follow the complete instructions here: https://github.com/fharris/curiositymicroservice/blob/main/automatic-deployment.md. You will certainly have a lot of fun doing it. In the end, you should be able to have an ecosystem containing a CI/CD toolchain powered by Jenkins and completely integrated with Gogs as a local Git server and Registry as a local Docker registry server. There is also a MySQL database running locally as a container. There is also a Dind or Docker in Docker container which is needed to help Jenkins container build containers. Everything will be running as a container inside a docker network called cloudnative network  For the runtime or the target against which Jenkins will be deploying, we are going to continue to use Kubernetes.  You can also see in the diagram the IP addresses for the cloudnative docker network (CIDR 172.18.0.0/16, which is predefined and shouldn’t change for you) and the Kubernetes cluster API (in our case 192.168.5.15:6443 and should almost certainly be different for you). Jenkins is the Master of Ceremony and will be responsible for managing builds and deployments. The exercises you are about to follow will test the efficiency of the CI/CD pipeline. The next Figure illustrates step-by-step, from 1 to 4, the flow of events that we need to learn to see how a change in the application's code will trigger the CI/CD toolchain and deploy a new version of the application. 
+In the previous step, you have manually installed the application and test it with the browser and curl.  To replicate it in an automated way, by setting up a CI/CD pipeline, please follow the complete instructions here: https://github.com/fharris/curiositymicroservice/blob/main/automatic-deployment.md. You will certainly have a lot of fun doing it. In the end, you should be able to have an ecosystem containing a CI/CD toolchain powered by Jenkins and completely integrated with Gogs as a local Git server and Registry as a local Docker registry server. There is also a MySQL database running locally as a container. There is also a Dind or Docker in Docker container which is needed to help Jenkins container build containers. Everything will be running as a container inside a docker network called cloudnative network  For the runtime or the target against which Jenkins will be deploying, we are going to continue to use Kubernetes. **In our example, we are using Rancher Desktop with K3s. This is relevant because we already have a Traefik ingress controller installed.**  You can also see in the diagram the IP addresses for the cloudnative docker network (CIDR 172.18.0.0/16, which is predefined and shouldn’t change for you) and the Kubernetes cluster API (in our case 192.168.5.15:6443 and should almost certainly be different for you). Jenkins is the Master of Ceremony and will be responsible for managing builds and deployments. The exercises you are about to follow will test the efficiency of the CI/CD pipeline. The next Figure illustrates step-by-step, from 1 to 4, the flow of events that we need to learn to see how a change in the application's code will trigger the CI/CD toolchain and deploy a new version of the application. 
 
 ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/d6706678-9870-4f19-9287-af25a1cb1f89)
 
@@ -135,11 +135,11 @@ Replace the Clone Address with the GitHub address of the original repository whi
 
 <img width="821" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/79d5a50f-48b6-434f-ad4b-3231d17ecdac">
 
-Lets repeat the previous step to import the other 2 microservices code from GitHub, **championshipmicroservice** and **curiosityfrontendmicroservice**:
+Let's repeat the previous step to import the other 2 microservices code from GitHub, **championshipmicroservice** and **curiosityfrontendmicroservice**:
 
-Click the little plus "+" signal next to your avatar. select New Migration and replace the Clone Address with the GitHub address of the original repository which is now https://github.com/fharris/championshipmicroservice and https://github.com/fharris/curiosityfrontendmicroservice respectivelly.After clicking the green button to start the migration, if all goes well, you should be able to see your codebase at [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice)and [https://github.com/fharris/curiosityfrontendmicroservice](https://github.com/fharris/curiosityfrontendmicroservice)   .
+Click the little plus "+" signal next to your avatar. select New Migration and replace the Clone Address with the GitHub address of the original repository which is now https://github.com/fharris/championshipmicroservice and https://github.com/fharris/curiosityfrontendmicroservice respectively. 
 
-Now for the frontend, click the little plus "+" signal next to your avatar and select New Migration and replace the Clone Address with the GitHub address of the original repository which is now [https://github.com/fharris/curiosityfrontendmicroservice](https://github.com/fharris/curiosityfrontendmicroservice) .
+After clicking the green button to start the migration, if all goes well, you should be able to see your codebase at [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice) and [http://localhost:10880/gogs-user/curiosityfrontendmicroservice](http://localhost:10880/gogs-user/curiosityfrontendmicroservice) .
 
 
 
@@ -150,7 +150,7 @@ We will now configure Webhooks for the Gogs-Jenkins communication. From your cod
 <img width="1057" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/280c7bbc-51d1-4a5c-8d0a-1d6b5f178ab6">
 
 
-Replace the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosity](http://jenkins:8080/gogs-webhook/?job=buildcuriosity) which is where Jenkins CI/CD will be waiting for Gogs notifications. Make sure the Content-Type is application/json, and that there is no Secret configured. Before clicking the green button to create the Webhook ensure the Just the Push event option is selected and the Active box is enabled. Next figure  shows how to do it:
+Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosity](http://jenkins:8080/gogs-webhook/?job=buildcuriosity) which is where Jenkins CI/CD will be waiting for Gogs notifications for the curiosity microservice. Make sure the Content-Type is application/json, and that there is no Secret configured. Before clicking the green button to create the Webhook ensure the Just the Push event option is selected and the Active box is enabled. Next figure  shows how to do it:
 
 <img width="997" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/07981dab-68ac-4420-971b-b5ecfe4eb257">
 
@@ -162,7 +162,7 @@ If all goes well, you should get something as Figure gogs8. Click the link for t
 
 Figure gogs8
 
-Now, as illustrated in Figure gogs9, inside the webhook configuration you will see a little Test Delivery button on the right bottom of the screen. If you click it you should get a successful test and an event as just been delivered to your local Jenkins:
+Now, as illustrated in Figure gogs9, inside the webhook configuration you will see a little **Test Delivery** button on the right bottom of the screen. If you click it you should get a successful test and an event delivered to your local Jenkins:
 
 <img width="1090" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/fb89e807-40c2-47da-b1a9-f53d3839553a">
 
@@ -173,21 +173,11 @@ Figure gogs9
 
 Repeat the previous steps to create the webhooks for the other 2 services:
 
-Navigate directly to [http://localhost:10880/gogs-user/championshipmicroservice/settings](http://localhost:10880/gogs-user/championshipmicroservice/settings) .  
-
-Replace the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildchampionship](http://jenkins:8080/gogs-webhook/?job=buildchampionship)
-
-Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job=buildchampionship](http://jenkins:8080/gogs-webhook/?job=buildchampionship) ). Press the Test Delivery button on the right bottom of the screen.
+Navigate directly to [http://localhost:10880/gogs-user/championshipmicroservice/settings](http://localhost:10880/gogs-user/championshipmicroservice/settings) .  Click Webhooks, and Add a New Webooks of type Gogs. Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildchampionship](http://jenkins:8080/gogs-webhook/?job=buildchampionship) . Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job=buildchampionship](http://jenkins:8080/gogs-webhook/?job=buildchampionship) ) and press the **Test Delivery** button on the right bottom of the screen.
 
 
 
-Navigate directly to [http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings](http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings) .  
-
-Replace the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend](http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend)
-
-Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend](http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend) ). Press the Test Delivery button on the right bottom of the screen.
-
-
+Navigate directly to [http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings](http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings) .  Click Webhooks, and Add a New Webooks of type Gogs. Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend](http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend) . Click the link for the webhook (should be [http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend](http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend) ). Press the **Test Delivery** button on the right bottom of the screen.
 
 4. **Configuring Jenkins**
 
