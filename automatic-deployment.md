@@ -131,13 +131,13 @@ Click the little plus "+" signal next to your avatar and select New Migration:
 <img width="985" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/303652e6-1048-4a79-ac4d-8b9600d64f72">
 
 
-Replace the Clone Address with the GitHub address of the original repository which is in this case [https://github.com/fharris/curiositymicroservice](https://github.com/fharris/curiositymicroservice) . The owner will be **gogs-user** and the name should be the **curiositymicroservice** as well.
+Replace the Clone Address with the GitHub address of the original repository which is in this case https://github.com/fharris/curiositymicroservice . The owner will be **gogs-user** and the name should be the **curiositymicroservice** as well.
 
 <img width="821" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/79d5a50f-48b6-434f-ad4b-3231d17ecdac">
 
 Lets repeat the previous step to import the other 2 microservices code from GitHub, **championshipmicroservice** and **curiosityfrontendmicroservice**:
 
-Click the little plus "+" signal next to your avatar. select New Migration and replace the Clone Address with the GitHub address of the original repository which is now [https://github.com/fharris/championshipmicroservice](https://github.com/fharris/championshipmicroservice) .After clicking the green button to start the migration, if all goes well, you should be able to see your codebase at [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice) .After clicking the green button to start the migration, if all goes well, you should be able to see your codebase at [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice) .
+Click the little plus "+" signal next to your avatar. select New Migration and replace the Clone Address with the GitHub address of the original repository which is now https://github.com/fharris/championshipmicroservice and https://github.com/fharris/curiosityfrontendmicroservice respectivelly.After clicking the green button to start the migration, if all goes well, you should be able to see your codebase at [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice)and [https://github.com/fharris/curiosityfrontendmicroservice](https://github.com/fharris/curiosityfrontendmicroservice)   .
 
 Now for the frontend, click the little plus "+" signal next to your avatar and select New Migration and replace the Clone Address with the GitHub address of the original repository which is now [https://github.com/fharris/curiosityfrontendmicroservice](https://github.com/fharris/curiosityfrontendmicroservice) .
 
