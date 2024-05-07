@@ -81,7 +81,7 @@ At some point, you will see the screen below and the script will stop and wait f
 
 Follow the next instructions to configure Gogs and when finished, return to the script in the terminal, and press Enter to resume the configuration of the other containers:
 
-3. **Configure local Git server**
+3. **GOGS: Configure local Git server**
 
 The Gogs container is running on *http://localhost:10880*. Copy past that hostname:port on your browser and start the configuration. The first time you run it, you will get a special screen for the database set-up. Make sure that you select **SQLite3** and keep the **Path** as it is as illustrated in the next figure.
 
@@ -108,7 +108,13 @@ Now is the moment to return to the terminal and resume the script by pressing **
 ![image](https://github.com/fharris/curiositymonolith/assets/17484224/bcc3d55e-70e6-447b-8f67-8cc137510fe7)
 
 
-Let the script run to the end and confirm that all containers are running. You need **jq** installed to run the following command:
+Let the script run to the end.
+You will notice that this version of script has already created in the local database server both databases curiositydb and championshipdb for the 2 backend microservices.
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/09c125e2-e1a4-493a-bd62-c89de9edc79d)
+
+
+Lets confirm that all containers are running. You need **jq** installed to run the following command:
 
 **[optional]**
 ```
@@ -119,7 +125,7 @@ you should see the docker network cloudnative with 5 containers running, each sh
 
 ![image](https://github.com/fharris/curiositymonolith/assets/17484224/166d4a97-b70a-439b-9853-739a49a21186)
 
-**Continue with Gogs Configuration**
+**GOGS: Continue with Gogs Configuration**
 
 Get back to the Gogs Console in the browser. Just retype  [http://localhost:10880](http://localhost:10880) and sign in with the user **gogs-user** and the password you created before. 
 
