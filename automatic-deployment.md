@@ -32,7 +32,7 @@ git clone https://github.com/fharris/curiositymicroservice
 ```
 Change to the curiositymicroservice folder and run the following commands:
 
-If we already tried this exercise before, or have installed the application manually, please run the following 2 scripts for housekeeping:
+If you already tried this exercise before, or have installed the application manually, please run the following 2 scripts for housekeeping:
 
 ```
 ./housekeeping-k8s.sh
@@ -60,13 +60,13 @@ And you should get the Server address.
 
 You will need to update this value later in Jenkins env vars.
 
-1. **Create a namespace for the application and Jenkins user credentials**
+2. **Create a namespace for the application and Jenkins user credentials**
 
 ```
 ./jenkinsconfiguration-k8.sh
 ```
 
-2. **Create local network and containers**
+3. **Create local network and containers**
 
 We will create a docker network (we could do this with docker composer as well, but for now let's keep it like that) and provision 5 containers that will help us recreate a simplified cloud native ecosystem. A first container with Docker Dind which allows us to build and run containers from within containers. A second container with Jenkins where the CI/CD pipelines to build and deploy the application will be configured. A third container with Gogs, a simple git Server where our code will reside and be synchronized with the Jenkins pipelines. A fourth container with a local mysql database, which we will use to help us on the builds. A fifth container with a local docker registry where the lifecycle of our application image will be managed and Kubernetes pull it to launch. Remember that this exercise is pedagogical and has an educational goal. It's important if you want to learn how things work behind the scenes.
 
@@ -131,13 +131,13 @@ Click the little plus "+" signal next to your avatar and select New Migration:
 <img width="985" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/303652e6-1048-4a79-ac4d-8b9600d64f72">
 
 
-Follow Figure gogs5 and replace the Clone Address with the GitHub address of the original repository which is [https://github.com/fharris/curiositymicroservice](https://github.com/fharris/curiositymicroservice) . The owner will be **gogs-user** and the name should be the **curiositymicroservice** as well.
+Replace the Clone Address with the GitHub address of the original repository which is in this case [https://github.com/fharris/curiositymicroservice](https://github.com/fharris/curiositymicroservice) . The owner will be **gogs-user** and the name should be the **curiositymicroservice** as well.
 
 <img width="821" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/79d5a50f-48b6-434f-ad4b-3231d17ecdac">
 
-Repeat the previous step to import the other 2 microservices code from GitHub:
+Lets repeat the previous step to import the other 2 microservices code from GitHub, **championshipmicroservice** and **curiosityfrontendmicroservice**:
 
-Click the little plus "+" signal next to your avatar and select New Migration and replace the Clone Address with the GitHub address of the original repository which is now [https://github.com/fharris/championshipmicroservice](https://github.com/fharris/championshipmicroservice) .After clicking the green button to start the migration, if all goes well, you should be able to see your codebase at [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice) .After clicking the green button to start the migration, if all goes well, you should be able to see your codebase at [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice) .
+Click the little plus "+" signal next to your avatar. select New Migration and replace the Clone Address with the GitHub address of the original repository which is now [https://github.com/fharris/championshipmicroservice](https://github.com/fharris/championshipmicroservice) .After clicking the green button to start the migration, if all goes well, you should be able to see your codebase at [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice) .After clicking the green button to start the migration, if all goes well, you should be able to see your codebase at [http://localhost:10880/gogs-user/championshipmicroservice](http://localhost:10880/gogs-user/championshipmicroservice) .
 
 Now for the frontend, click the little plus "+" signal next to your avatar and select New Migration and replace the Clone Address with the GitHub address of the original repository which is now [https://github.com/fharris/curiosityfrontendmicroservice](https://github.com/fharris/curiosityfrontendmicroservice) .
 
