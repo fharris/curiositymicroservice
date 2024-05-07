@@ -211,17 +211,21 @@ Navigate directly to [http://localhost:10880/gogs-user/championshipmicroservice/
 ![image](https://github.com/fharris/curiositymicroservice/assets/17484224/f9263db3-5e07-497d-b5e6-0fd9628c6585)
 
 
-Repeat the process for curiosityfrontendmicroservice. Navigate directly to [http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings](http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings) .  Click Webhooks, and Add a New Webooks of type Gogs. Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend](http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend) . Click the link for the webhook, which should be the same as the Jenkins endpoint (...jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend). Press the **Test Delivery** button on the right bottom of the screen.
+Repeat the process for curiosityfrontendmicroservice. Navigate directly to [http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings](http://localhost:10880/gogs-user/curiosityfrontendmicroservice/settings) .  Click Webhooks, and Add a New Webooks of type Gogs. Fill in the Payload URL with [http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend](http://jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend) . Click the link for the webhook, which should be the same as the Jenkins endpoint (...jenkins:8080/gogs-webhook/?job=buildcuriosityfrontend). Press the **Test Delivery** button on the right bottom of the screen:
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/38177031-1e34-426a-8a61-eb4eed4bcb74)
+
+
 
 4. **Configuring Jenkins**
 
-This Jenkins container has all the CI/CD pipelines already configured for you to use. All is managed as code from the code base repository  (the buildcuriosity.groovy and deploycuriosity.groovy). Navigate with your browser to localhost:8080 and sign in with the user we prepared for you which is **admin** with password **123**. Skip all the steps related to plugin installation or related to the creation of new users.
+This Jenkins container has all the CI/CD pipelines already configured for you to use. All is managed as code from the code base repository. Navigate with your browser to localhost:8080 and sign in with the user we prepared for you which is **admin** with password **123**. Skip all the steps related to plugin installation or related to the creation of new users.
 
 <img width="1281" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/9aea823c-2a7a-422a-ad10-70c7df68aab8">
 
 ![](RackMultipart20231003-1-aq9tt0_html_647a325c2ba2b80e.png)
 
-Close this and ignore
+Close everything and ignore
 
 <img width="1013" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/bf148835-c175-4c7c-b6b6-2b96fa0d18c5">
 
@@ -232,9 +236,11 @@ Start using Jenkins
 <img width="1001" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/82f9ba77-4d72-4d56-a7c7-8b44cb6c196f">
 
 
-Once logged in you should see Jenkins with 3 jobs configured. The job curiosity should have at least a failed build which was triggered when you tested the Gogs Webhook. The first run takes a few minutes.
+Once logged in you should see Jenkins with 9 jobs configured. Three for each microservice. The 3 build jobs should have at least a failed build which was triggered when you tested the Gogs Webhook. The first run takes a few minutes.
 
 <img width="1428" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/2e32f272-bc5e-430e-8dbc-35c033ebf370">
+
+
 
 
 ![](RackMultipart20231003-1-aq9tt0_html_f3af156b977ab465.png)
