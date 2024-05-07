@@ -439,7 +439,6 @@ curl localhost/wiki/curiosity/page/Fernando/Portugal/Spain
 curl localhost/leaders/
 ```
 
-<img width="1440" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/809a4659-26b4-4e1a-83df-1bd14e5b4760">
 
 
 And that's it!!
