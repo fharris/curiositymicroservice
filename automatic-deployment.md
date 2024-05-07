@@ -244,14 +244,10 @@ Once logged in you should see Jenkins with 9 jobs configured. Three for each mic
 
 
 
-![](RackMultipart20231003-1-aq9tt0_html_f3af156b977ab465.png)
-
-Figure jenk1
-
 We must update a couple of things first. The Kubernetes token for the Jenkins Service Account, the local MySQL password to the **curiosity** user, which is **Welcome#1** and the Kubernetes endpoint.
 
 
-In Manage Jenkins,  Click Credentials:
+In *Manage Jenkins*,  Click *Credentials*:
 <img width="1078" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/5d6fb621-7165-499b-ae71-88522f81ef82">
 
 
@@ -263,11 +259,12 @@ Select the jenkins-token-kubernetes to edit and replace with the token you gener
 <img width="1387" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/c5341eae-8ef5-41ec-b8ae-6fb1fa256f90">
 
 
-If you don't remember the token run the following command to get it again:
+If you don't remember the token, open a terminal and run the following command to get it again:
 
 ```
 kubectl get secrets jenkins-task-sa-secret -o json | jq -Mr '.data["token"]' | base64 -D
 ```
+
 and after clicking Update, replace the secret with it:
 <img width="1346" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/8e5febeb-2bad-4e0d-bb14-0cfdc52e55b9">
 
@@ -296,7 +293,7 @@ In Manage Jenkins, click System or go directly to http://localhost:8080/manage/c
 
 ![Alt text](image.png)
 
-Search the environment variables and update with the server address of your kubernetes cluster:
+Search the environment variables and update with the server address of your Kubernetes cluster:
 <img width="1390" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/c6f839b4-822c-4e25-8117-29cd8af695d0">
 
 Click Save.
@@ -304,6 +301,8 @@ Click Save.
 
 Back to the Dashboard schedule a build for the job **buildcuriosity** as we need to generate an image to pull to the local container repos:
 <img width="1427" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/574323a5-1627-4306-8c1b-f00c80cf02f8">
+
+
 
 When the job is finished, if the Building Image step is green 
 
