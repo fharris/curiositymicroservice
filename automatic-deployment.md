@@ -142,7 +142,8 @@ Click the little plus "+" signal next to your avatar and select *New Migration*:
 
 Replace the Clone Address with the GitHub address of the original repository which is in this case https://github.com/fharris/curiositymicroservice . The owner will be **gogs-user** and the name should be the **curiositymicroservice** as well.
 
-<img width="821" alt="image" src="https://github.com/fharris/curiositymonolith/assets/17484224/79d5a50f-48b6-434f-ad4b-3231d17ecdac">
+
+![image](https://github.com/fharris/curiositymicroservice/assets/17484224/c55a92f8-9cad-4a0b-b61e-f0e94d640047)
 
 Let's repeat the previous step to import the other 2 microservices code from GitHub, **championshipmicroservice** and **curiosityfrontendmicroservice**:
 
