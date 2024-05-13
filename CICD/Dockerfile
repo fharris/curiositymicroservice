@@ -27,9 +27,9 @@ COPY --chown=jenkins:jenkins configurechampionship.xml /var/jenkins_home/configu
 COPY --chown=jenkins:jenkins buildchampionship.xml /var/jenkins_home/buildchampionship.xml
 COPY --chown=jenkins:jenkins deploychampionship.xml /var/jenkins_home/deploychampionship.xml
 
-COPY --chown=jenkins:jenkins configurecuriosity.xml /var/jenkins_home/configurecuriosityfrontend.xml
-COPY --chown=jenkins:jenkins buildcuriosity.xml /var/jenkins_home/buildcuriosityfrontend.xml
-COPY --chown=jenkins:jenkins deploycuriosity.xml /var/jenkins_home/deploycuriosityfrontend.xml
+COPY --chown=jenkins:jenkins configurecuriosityfrontend.xml /var/jenkins_home/configurecuriosityfrontend.xml
+COPY --chown=jenkins:jenkins buildcuriosityfrontend.xml /var/jenkins_home/buildcuriosityfrontend.xml
+COPY --chown=jenkins:jenkins deploycuriosityfrontend.xml /var/jenkins_home/deploycuriosityfrontend.xml
 
 COPY --chown=jenkins:jenkins jenkins_credentials.xml /var/jenkins_home/jenkins_credentials.xml
 
