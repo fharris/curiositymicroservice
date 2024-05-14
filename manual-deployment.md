@@ -1,8 +1,9 @@
 **Manual deployment**
 
 Get the code from GitHub If you haven’t done so, get the code from the repository with the below command:
+```
 git clone https://github.com/fharris/curiositymicroservice
-
+```
 ***1-Create the curiosityevents namespace***
 You can start by running the housekeeping-k8s script first to clean everything if this is not the first time you are doing the set-up. Change to the curiositymicroservice folder and run the following commands:
 
