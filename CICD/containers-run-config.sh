@@ -2,17 +2,7 @@
 
 echo "Starting local dev configuration"
 
-echo "ATTENTION FERNANDO: -->>> ***** STILL NEED TO LIMIT THE RESOURCES USED BY CONTAINERS!!!"
-echo "ATTENTION FERNANDO: -->>> ***** STILL NEED TO put host or IPs as variables across the script!!!"
-
 echo Running in $SHELL
-
-#echo Pull containers or build in the case of Jenkins and Docker Dind
-#docker pull docker:dind
-#docker pull fharris/jenkins:jcasc
-#docker pull mysql:5.7
-#docker pull gogs/gogs
-
 
 echo "+------------------------------------+"
 echo "| Starting Network                   |"
@@ -39,11 +29,6 @@ docker run -d -p 5000:5000 --restart=on-failure --detach --network cloudnative -
 echo Starting MySQL Container
 docker run --name mysql --restart=on-failure --detach --network cloudnative --ip 172.18.0.2  --env MYSQL_ROOT_PASSWORD=mySQLpword#2023 --volume mysql-data:/var/lib/mysql --publish 9306:3306 mysql:8
 
-#sleep 30;
-# copy the files and docker exec instead of running mysql --> https://stackoverflow.com/questions/22907231/how-to-copy-files-from-host-to-docker-container
-#mysql -h 127.0.0.1 --port 9306 -u root -pmySQLpword#2023 < ./databaseconfig/create-curiositydb-resources.sql
-#mysql -h 127.0.0.1 --port 9306 -u curiosity -pWelcome#1 -e 'SHOW DATABASES;'
-
 echo Starting Gogs Container
 docker run --name gogs --restart=on-failure --detach --network cloudnative --ip 172.18.0.3  --publish 10022:22 --publish 10880:3000 --volume gogs-data:/data gogs/gogs
 
@@ -59,11 +44,9 @@ echo "|                                     |"
 echo "+-------------------------------------+"
 
 echo Configuring Gogs...
-# maybe having app.ini with all ready!!
-#or implementing a wait to press button and ask user to open browser and configure before continuing
 
 echo "+---------------------------------------------------------------------------+"
-echo "|                     **ATENTION**                                          |"
+echo "|                     **ATTENTION**                                          |"
 echo "| Open your browser in localhost:10880 and configure Gogs before continuing.|"
 echo "| Follow the steps explained in Github and press the blue button to install |"
 echo "|                                                                           |"
@@ -93,13 +76,9 @@ docker exec -it jenkins sh -c 'cd $HOME;sleep 30;./import-jobs.sh'
 
 
 echo Configuring MySQL...
-#MySQL container should be up...time to configure database
-# copy the files and docker exec instead of running mysql --> https://stackoverflow.com/questions/22907231/how-to-copy-files-from-host-to-docker-container
 mysql -h 127.0.0.1 --port 9306 -u root -pmySQLpword#2023 < ./databaseconfig/create-curiositydb-resources.sql
 
 echo "User curiosity databases:"
 mysql -h 127.0.0.1 --port 9306 -u curiosity -pWelcome#1 -e 'SHOW DATABASES;'
-#echo "User championship databases:"
-#mysql -h 127.0.0.1 --port 9306 -u championship -pWelcome#1 -e 'SHOW DATABASES;'
 
 echo Done
